@@ -2,8 +2,10 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY app.py test_app.py ./
+# Copy everything from your folder into the container
+COPY . .
 
-RUN pip install pytest
+# Install everything listed in our shopping list
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python", "app.py"]
