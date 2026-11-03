@@ -75,3 +75,5 @@ jobs:
         run: |
           docker tag devops-intern-app:${{ steps.vars.outputs.sha_short }} $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+# current test - test 2 - pipeline - update the AWS policy to allow the role to assume the ECR push permissions.
