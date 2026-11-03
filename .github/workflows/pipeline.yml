@@ -53,7 +53,7 @@ jobs:
           docker build -t my-app:${{ steps.vars.outputs.SHORT_SHA }} .
         
       - name: Run Trivy Security Scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.28.0
         with:
           image-ref: my-app:${{ steps.vars.outputs.SHORT_SHA }}
           format: 'table'
@@ -63,7 +63,7 @@ jobs:
       - name: Push image to ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: github-actions-testapp # <<<< REPLACE WITH YOUR ECR REPO NAME
+          ECR_REPOSITORY: github-actions-testapp # <<<< REPLACE WITH THE ECR REPO NAME
           IMAGE_TAG: ${{ steps.vars.outputs.SHORT_SHA }}
         run: |
           docker tag my-app:${{ steps.vars.outputs.SHORT_SHA }} $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
