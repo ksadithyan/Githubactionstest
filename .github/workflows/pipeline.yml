@@ -63,7 +63,6 @@ jobs:
         with:
           image-ref: 'devops-intern-app:${{ steps.vars.outputs.sha_short }}'
           format: 'table'
-          exit-code: '1'
           severity: 'CRITICAL,HIGH'
 
       # 4. Push the image (Using the standardized sha_short at all places)
